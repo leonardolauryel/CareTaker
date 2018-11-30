@@ -1,31 +1,25 @@
 package trab.caretaker.control;
 
-import trab.caretaker.view.DropSensorSimulatorView;
-import trab.caretaker.view.WatchView;
+import trab.caretaker.view.Window;
 
-public class Watch extends WatchView{
+public class Watch {
     private Boolean dropped;
     private Boolean onArm;
-    WatchView watchView;
-    DropSensorSimulatorView dropSensorSimulatorView;
-
-    public void run(){
-        dropSensorSimulatorView = new DropSensorSimulatorView();
-    }
+    Window window;
 
     public Boolean isOnArm(){
         return onArm;
     }
 
-    public void updateMotionSensorStatus(){
-        dropped = dropSensorSimulatorView.getItFellToTheGround();
-        onArm = dropSensorSimulatorView.getItIsInArm();
+    public void updateMotionSensorStatus(Boolean dropped, Boolean onArm){
+        if(dropped)
+            this.dropped = dropped;
+        if(onArm)
+            this.onArm = onArm;
     }
-
 
     public Boolean fallDetect(){
-        return dropped;
+        return dropped && onArm;
     }
-
 
 }
