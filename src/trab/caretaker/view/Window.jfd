@@ -5,18 +5,18 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 			"$horizontalGroup": "par l {seq {space :::p, comp mainPanel:::::x, space :::p}}"
-			"$verticalGroup": "par l {seq t {comp mainPanel:::p:762:p, space ::24:x}}"
+			"$verticalGroup": "par l {seq t {comp mainPanel:::p:762:p, space ::19:x}}"
 		} ) {
 			name: "mainFrame"
 			"resizable": false
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 				"$horizontalGroup": "par l {seq {par l {seq {space :::p, comp smartphonePanel:::p:348:p, space s:::p, par l {seq {comp smartWatchPanel:::::x, space :::p, comp fallSimulatorPanel:::p::p}, comp computerPanel::t:::x}}, comp careTakerTitlePanel:::::x}, space :::p}}"
-				"$verticalGroup": "par l {seq l {comp careTakerTitlePanel:::p::p, space :::p, par l {seq {par l:::p {comp smartWatchPanel:::::x, comp fallSimulatorPanel:::::x}, space :::x, comp computerPanel:::p:364:p, space :::x}, seq l {comp smartphonePanel:::p:613:p, space :::x}}}}"
+				"$verticalGroup": "par l {seq l {comp careTakerTitlePanel:::p::p, space :::p, par l {seq {par l:::p {comp smartWatchPanel:::::x, comp fallSimulatorPanel:::::x}, space :::x, comp computerPanel:::p:364:p, space :::x}, seq {comp smartphonePanel:::p::p, space :::x}}}}"
 			} ) {
 				name: "mainPanel"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {par l {seq {space :::p, comp label5:::p:348:p}, seq l {space :p:28:p, comp panel9:::p::p}}, space :0:0:x}, seq {par l {seq {par l {seq {space :p:15:p, comp label9:::p::p, space :p:16:p}, seq t {space :::p, comp label10:::p::p, space :::p}}, par l {comp contactName::l:p:118:p, seq l {space :6:6:p, comp contactNumber:::p:108:p}}, space :::x, comp btnAddContact:::p:118:p, space :p:35:p}, seq {comp label11:::p:147:p, space :::p, comp emergencyNumber:::p:157:p, space :0:0:x}}, space :::x}, seq l {space :::p, comp btnAddEmergencyContact:::p:166:p, space :::x}}"
-					"$verticalGroup": "par l {seq l {space :p:7:p, comp label5:::p:58:p, space u:::p, comp panel9:::p::p, space :::p, par l {comp btnAddContact::l:p::p, seq l {par b {comp contactName::b:p:19:p, comp label9::b:p::p}, space :::p, par b {comp contactNumber::b:p:18:p, comp label10::b:p::p}, space s:::p, par b {comp label11::b:p::p, comp emergencyNumber::b:p:18:p}}}, space :::p, comp btnAddEmergencyContact:::p::p, space :::p}}"
+					"$horizontalGroup": "par l {seq {space :::p, comp label5:::p:348:p, space :0:0:x}, seq t {space :::x, comp panel9:::p::p, space :p:55:p}}"
+					"$verticalGroup": "par l {seq l {space :p:7:p, comp label5:::p:58:p, space u:::p, comp panel9:::p::p, space ::131:x}}"
 				} ) {
 					name: "smartphonePanel"
 					"foreground": new java.awt.Color( 135, 13, 16, 255 )
@@ -29,8 +29,8 @@ new FormModel {
 						"font": new java.awt.Font( "URW Palladio L", 1, 26 )
 					} )
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-						"$horizontalGroup": "par l {seq {par l {seq l {space :p:25:p, comp panel10:::p:173:p}, seq l {space :p:89:p, comp panel5:::p::p}}, space ::28:x}}"
-						"$verticalGroup": "par l {seq t {space :p:23:p, comp panel10:::::x, space :p:12:p, comp panel5:::p::p, space :::p}}"
+						"$horizontalGroup": "par l {seq {par l {seq {space :p:14:p, comp panel10:::p::p}, seq l {space :::p, comp hSpacer1:::p:81:p, space :::p, comp panel5:::p::p, space :::p, comp hSpacer2::::81:x}}, space :::p}}"
+						"$verticalGroup": "par l {seq t {space :p:29:p, comp panel10:::::x, par l {seq l {space :::p, comp panel5:::p::p}, seq {space :p:19:p, comp hSpacer1:::p::p}, seq l {space s:::p, comp hSpacer2:::p::p}}, space :::p}}"
 					} ) {
 						name: "panel9"
 						"background": new java.awt.Color( 131, 8, 6, 255 )
@@ -42,8 +42,8 @@ new FormModel {
 							"background": sfield java.awt.Color black
 						} )
 						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-							"$horizontalGroup": "par l {seq {space :::p, par l {comp scrollPane1::l:::x, comp btnShowEmergencyContact::l::0:x, seq l {comp btnShowContactList:::p:168:p, space :0:0:x}}, space :::p}}"
-							"$verticalGroup": "par l {seq l {space :::p, comp scrollPane1:::p:159:p, space ::93:x, comp btnShowContactList:::p::p, space :::p, comp btnShowEmergencyContact:::p::p, space :::p}}"
+							"$horizontalGroup": "par l {seq {space :::p, par l {comp btnAddContact::::189:x, comp btnShowEmergencyContact::l::0:x, comp btnAddEmergencyContact::t::0:x, comp scrollPane1::l:::x, comp btnShowContactList::l::189:x}, space :::p}}"
+							"$verticalGroup": "par l {seq l {space :::p, comp scrollPane1:::p:159:p, space ::15:x, comp btnAddEmergencyContact:::p::p, space :::p, comp btnAddContact:::p::p, space u:::p, comp btnShowContactList:::p::p, space :::p, comp btnShowEmergencyContact:::p::p, space :::p}}"
 						} ) {
 							name: "panel10"
 							"background": sfield java.awt.Color black
@@ -53,56 +53,40 @@ new FormModel {
 									name: "phoneText"
 									"editable": false
 									"selectedTextColor": new java.awt.Color( 51, 51, 51, 255 )
+									"font": new java.awt.Font( "Monospaced", 0, 12 )
 								} )
 							} )
 							add( new FormComponent( "javax.swing.JButton" ) {
 								name: "btnShowContactList"
 								"text": "Ver lista de contatos"
+								"font": new java.awt.Font( "Ubuntu", 1, 14 )
 								addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnShowContactListActionPerformed", true ) )
 							} )
 							add( new FormComponent( "javax.swing.JButton" ) {
 								name: "btnShowEmergencyContact"
 								"text": "Ver telefone de emergência"
-								"font": new java.awt.Font( "Ubuntu", 0, 12 )
+								"font": new java.awt.Font( "Ubuntu", 1, 12 )
 								addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnShowEmergencyContactActionPerformed", true ) )
 							} )
+							add( new FormComponent( "javax.swing.JButton" ) {
+								name: "btnAddContact"
+								"text": "Adicionar Contato"
+								"font": new java.awt.Font( "Ubuntu", 1, 15 )
+								addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnAddContactActionPerformed", true ) )
+							} )
+							add( new FormComponent( "javax.swing.JButton" ) {
+								name: "btnAddEmergencyContact"
+								"text": "Adicionar telefone de emergência"
+								"font": new java.awt.Font( "Ubuntu", 1, 10 )
+								addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnAddEmergencyContactActionPerformed", true ) )
+							} )
 						} )
-					} )
-					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "label9"
-						"text": "Nome"
-						"foreground": sfield java.awt.Color black
-					} )
-					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "label10"
-						"text": "Telefone"
-						"foreground": sfield java.awt.Color black
-					} )
-					add( new FormComponent( "javax.swing.JFormattedTextField" ) {
-						name: "contactNumber"
-					} )
-					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "btnAddContact"
-						"text": "Adicionar Contato"
-						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnAddContactActionPerformed", true ) )
-					} )
-					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "btnAddEmergencyContact"
-						"text": "Adicionar telefone de emergência"
-						"font": new java.awt.Font( "Ubuntu", 0, 12 )
-						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnAddEmergencyContactActionPerformed", true ) )
-					} )
-					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "label11"
-						"text": "Telefone de emergência"
-						"foreground": sfield java.awt.Color black
-						"font": new java.awt.Font( "Ubuntu", 0, 10 )
-					} )
-					add( new FormComponent( "javax.swing.JFormattedTextField" ) {
-						name: "emergencyNumber"
-					} )
-					add( new FormComponent( "javax.swing.JTextField" ) {
-						name: "contactName"
+						add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
+							name: "hSpacer1"
+						} )
+						add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
+							name: "hSpacer2"
+						} )
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
@@ -141,7 +125,7 @@ new FormModel {
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {space :::p, comp label7::::379:x, space :::p}}"
+					"$horizontalGroup": "par l {seq {space :::p, comp label7::::374:x, space :::p}}"
 					"$verticalGroup": "par l {seq l {space :::p, comp label7:::p:62:p, space ::247:x}}"
 				} ) {
 					name: "smartWatchPanel"
@@ -169,8 +153,8 @@ new FormModel {
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {par l {seq l {space :p:476:p, comp panel8:::p::p}, seq l {space :p:283:p, comp label2:::p:379:p}, seq l {space :p:212:p, comp panel7:::p::p}, seq l {space :p:119:p, comp label6:::p::p}}, space ::66:x}}"
-					"$verticalGroup": "par l {seq l {comp label2:::p:68:p, space :::p, comp panel7:::p::p, space :p:62:p, comp label6:::p:91:p, space :p:30:p, comp panel8:::p::p, space :0:0:x}}"
+					"$horizontalGroup": "par l {seq {par l {seq l {space :p:476:p, comp panel8:::p::p}, seq l {space :p:212:p, comp panel7:::p::p}}, space ::191:x}, seq t {space :0:116:x, par l {seq t {comp label2:::p:379:p, space :p:162:p}, seq t {comp label6:::p::p, space :p:107:p}}}}"
+					"$verticalGroup": "par l {seq l {comp label2:::p:68:p, space :::p, comp panel7:::p::p, space s:::p, comp label6:::p:91:p, space :p:74:p, comp panel8:::p::p, space :0:0:x}}"
 				} ) {
 					name: "computerPanel"
 					"background": sfield java.awt.Color black
@@ -182,7 +166,7 @@ new FormModel {
 						"font": new java.awt.Font( "URW Palladio L", 1, 26 )
 					} )
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-						"$horizontalGroup": "par l {seq l {space :p:120:p, comp scrollPane2::::194:x, space :::p}}"
+						"$horizontalGroup": "par l {seq t {space :::p, comp scrollPane2::::308:x, space :::p}}"
 						"$verticalGroup": "par l {seq l {space :::p, comp scrollPane2::::150:x, space :::p}}"
 					} ) {
 						name: "panel7"
@@ -208,7 +192,7 @@ new FormModel {
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 10, 5 )
-			"size": new java.awt.Dimension( 1120, 815 )
+			"size": new java.awt.Dimension( 1115, 810 )
 		} )
 	}
 }
