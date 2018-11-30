@@ -25,16 +25,18 @@ public class Window extends JFrame {
         super("CareTaker");
         initComponents();
         setContentPane(mainPanel);
-        setSize(1120,815);
+        setSize(1115,810);
         setVisible(true);
         onArm = false;
         watch = new Watch();
         smartPhone = new SmartPhone();
-
     }
 
     private void btnFallActionPerformed(ActionEvent e) {
         watch.updateMotionSensorStatus(true, onArm);
+        if(watch.fallDetect()){
+
+        }
     }
 
     private void cboxOnFistActionPerformed(ActionEvent e) {
@@ -42,19 +44,62 @@ public class Window extends JFrame {
     }
 
     private void btnAddContactActionPerformed(ActionEvent e) {
-        smartPhone.addContact(contactName.getText(), contactNumber.getText());
-        phoneText.append("Contato adicionado\n");
+        Boolean itsANumber = false;
+        String phone = null;
+        Boolean cancel = false;
+        while(!itsANumber && !cancel) {
+            try {
+                phone = JOptionPane.showInputDialog("Digite o telefone do novo contato");
+                if(phone != null) {
+                    Long.parseLong(phone);
+                    itsANumber = true;
+                }
+                else
+                    cancel = true;
+            } catch (NumberFormatException exception) {
+                itsANumber = false;
+                JOptionPane.showMessageDialog(null, "Isso não é um número!");
+            }
+        }
+        if(itsANumber && !cancel) {
+            smartPhone.addContact(JOptionPane.showInputDialog("Digite o nome do contato"), phone);
+            phoneText.append("Contato adicionado\n");
+        }
+
     }
 
     private void btnAddEmergencyContactActionPerformed(ActionEvent e) {
-        smartPhone.setEmergencyNumber(emergencyNumber.getText());
-        phoneText.append("Contato de emergência definido\n");
+        Boolean itsANumber = false;
+        String phone= null;
+        Boolean cancel = false;
+        while(!itsANumber && !cancel) {
+            try {
+                phone = JOptionPane.showInputDialog("Digite o telefone de emergência");
+                if(phone != null) {
+                    Long.parseLong(phone);
+                    itsANumber = true;
+                }
+                else
+                    cancel = true;
+            } catch (NumberFormatException exception) {
+                itsANumber = false;
+                JOptionPane.showMessageDialog(null, "Isso não é um número!");
+            }
+        }
+        if(itsANumber && !cancel) {
+            smartPhone.setEmergencyNumber(phone);
+            phoneText.append("Telefone de emergência adicionado\n");
+        }
     }
 
     private void btnShowContactListActionPerformed(ActionEvent e) {
         Map<String, String> contacts= smartPhone.getContacts();
-        phoneText.append("Lista de contatos:\n");
-        contacts.forEach((k,v) -> phoneText.append(k + ": " + v + "\n"));
+        if (contacts.size() > 0) {
+            phoneText.append("Lista de contatos:\n");
+            contacts.forEach((k, v) -> phoneText.append(k + ": " + v + "\n"));
+        }
+        else
+            phoneText.append("Você não possui contatos\n");
 
     }
 
@@ -76,14 +121,10 @@ public class Window extends JFrame {
         phoneText = new JTextArea();
         btnShowContactList = new JButton();
         btnShowEmergencyContact = new JButton();
-        label9 = new JLabel();
-        label10 = new JLabel();
-        contactNumber = new JFormattedTextField();
         btnAddContact = new JButton();
         btnAddEmergencyContact = new JButton();
-        label11 = new JLabel();
-        emergencyNumber = new JFormattedTextField();
-        contactName = new JTextField();
+        hSpacer1 = new JPanel(null);
+        hSpacer2 = new JPanel(null);
         fallSimulatorPanel = new JPanel();
         cboxOnFist = new JCheckBox();
         btnFall = new JButton();
@@ -158,17 +199,29 @@ public class Window extends JFrame {
                                 //---- phoneText ----
                                 phoneText.setEditable(false);
                                 phoneText.setSelectedTextColor(new Color(51, 51, 51));
+                                phoneText.setFont(new Font("Monospaced", Font.PLAIN, 12));
                                 scrollPane1.setViewportView(phoneText);
                             }
 
                             //---- btnShowContactList ----
                             btnShowContactList.setText("Ver lista de contatos");
+                            btnShowContactList.setFont(new Font("Ubuntu", Font.BOLD, 14));
                             btnShowContactList.addActionListener(e -> btnShowContactListActionPerformed(e));
 
                             //---- btnShowEmergencyContact ----
                             btnShowEmergencyContact.setText("Ver telefone de emerg\u00eancia");
-                            btnShowEmergencyContact.setFont(new Font("Ubuntu", Font.PLAIN, 12));
+                            btnShowEmergencyContact.setFont(new Font("Ubuntu", Font.BOLD, 12));
                             btnShowEmergencyContact.addActionListener(e -> btnShowEmergencyContactActionPerformed(e));
+
+                            //---- btnAddContact ----
+                            btnAddContact.setText("Adicionar Contato");
+                            btnAddContact.setFont(new Font("Ubuntu", Font.BOLD, 15));
+                            btnAddContact.addActionListener(e -> btnAddContactActionPerformed(e));
+
+                            //---- btnAddEmergencyContact ----
+                            btnAddEmergencyContact.setText("Adicionar telefone de emerg\u00eancia");
+                            btnAddEmergencyContact.setFont(new Font("Ubuntu", Font.BOLD, 10));
+                            btnAddEmergencyContact.addActionListener(e -> btnAddEmergencyContactActionPerformed(e));
 
                             GroupLayout panel10Layout = new GroupLayout(panel10);
                             panel10.setLayout(panel10Layout);
@@ -177,11 +230,11 @@ public class Window extends JFrame {
                                     .addGroup(panel10Layout.createSequentialGroup()
                                         .addContainerGap()
                                         .addGroup(panel10Layout.createParallelGroup()
-                                            .addComponent(scrollPane1)
+                                            .addComponent(btnAddContact, GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
                                             .addComponent(btnShowEmergencyContact, GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
-                                            .addGroup(panel10Layout.createSequentialGroup()
-                                                .addComponent(btnShowContactList, GroupLayout.PREFERRED_SIZE, 168, GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                            .addComponent(btnAddEmergencyContact, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                                            .addComponent(scrollPane1)
+                                            .addComponent(btnShowContactList, GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE))
                                         .addContainerGap())
                             );
                             panel10Layout.setVerticalGroup(
@@ -189,7 +242,11 @@ public class Window extends JFrame {
                                     .addGroup(panel10Layout.createSequentialGroup()
                                         .addContainerGap()
                                         .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 159, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                                        .addComponent(btnAddEmergencyContact)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnAddContact)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnShowContactList)
                                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnShowEmergencyContact)
@@ -204,89 +261,48 @@ public class Window extends JFrame {
                                 .addGroup(panel9Layout.createSequentialGroup()
                                     .addGroup(panel9Layout.createParallelGroup()
                                         .addGroup(panel9Layout.createSequentialGroup()
-                                            .addGap(25, 25, 25)
-                                            .addComponent(panel10, GroupLayout.PREFERRED_SIZE, 173, GroupLayout.PREFERRED_SIZE))
+                                            .addGap(14, 14, 14)
+                                            .addComponent(panel10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                                         .addGroup(panel9Layout.createSequentialGroup()
-                                            .addGap(89, 89, 89)
-                                            .addComponent(panel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-                                    .addContainerGap(28, Short.MAX_VALUE))
+                                            .addContainerGap()
+                                            .addComponent(hSpacer1, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(panel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(hSpacer2, GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)))
+                                    .addContainerGap())
                         );
                         panel9Layout.setVerticalGroup(
                             panel9Layout.createParallelGroup()
                                 .addGroup(GroupLayout.Alignment.TRAILING, panel9Layout.createSequentialGroup()
-                                    .addGap(23, 23, 23)
+                                    .addGap(29, 29, 29)
                                     .addComponent(panel10, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGap(12, 12, 12)
-                                    .addComponent(panel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panel9Layout.createParallelGroup()
+                                        .addGroup(panel9Layout.createSequentialGroup()
+                                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(panel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(panel9Layout.createSequentialGroup()
+                                            .addGap(19, 19, 19)
+                                            .addComponent(hSpacer1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(panel9Layout.createSequentialGroup()
+                                            .addGap(18, 18, 18)
+                                            .addComponent(hSpacer2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                                     .addContainerGap())
                         );
                     }
-
-                    //---- label9 ----
-                    label9.setText("Nome");
-                    label9.setForeground(Color.black);
-
-                    //---- label10 ----
-                    label10.setText("Telefone");
-                    label10.setForeground(Color.black);
-
-                    //---- btnAddContact ----
-                    btnAddContact.setText("Adicionar Contato");
-                    btnAddContact.addActionListener(e -> btnAddContactActionPerformed(e));
-
-                    //---- btnAddEmergencyContact ----
-                    btnAddEmergencyContact.setText("Adicionar telefone de emerg\u00eancia");
-                    btnAddEmergencyContact.setFont(new Font("Ubuntu", Font.PLAIN, 12));
-                    btnAddEmergencyContact.addActionListener(e -> btnAddEmergencyContactActionPerformed(e));
-
-                    //---- label11 ----
-                    label11.setText("Telefone de emerg\u00eancia");
-                    label11.setForeground(Color.black);
-                    label11.setFont(new Font("Ubuntu", Font.PLAIN, 10));
 
                     GroupLayout smartphonePanelLayout = new GroupLayout(smartphonePanel);
                     smartphonePanel.setLayout(smartphonePanelLayout);
                     smartphonePanelLayout.setHorizontalGroup(
                         smartphonePanelLayout.createParallelGroup()
                             .addGroup(smartphonePanelLayout.createSequentialGroup()
-                                .addGroup(smartphonePanelLayout.createParallelGroup()
-                                    .addGroup(smartphonePanelLayout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(label5, GroupLayout.PREFERRED_SIZE, 348, GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(smartphonePanelLayout.createSequentialGroup()
-                                        .addGap(28, 28, 28)
-                                        .addComponent(panel9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(smartphonePanelLayout.createSequentialGroup()
-                                .addGroup(smartphonePanelLayout.createParallelGroup()
-                                    .addGroup(smartphonePanelLayout.createSequentialGroup()
-                                        .addGroup(smartphonePanelLayout.createParallelGroup()
-                                            .addGroup(smartphonePanelLayout.createSequentialGroup()
-                                                .addGap(15, 15, 15)
-                                                .addComponent(label9)
-                                                .addGap(16, 16, 16))
-                                            .addGroup(GroupLayout.Alignment.TRAILING, smartphonePanelLayout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addComponent(label10)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)))
-                                        .addGroup(smartphonePanelLayout.createParallelGroup()
-                                            .addComponent(contactName, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(smartphonePanelLayout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addComponent(contactNumber, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnAddContact, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
-                                        .addGap(35, 35, 35))
-                                    .addGroup(smartphonePanelLayout.createSequentialGroup()
-                                        .addComponent(label11, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(emergencyNumber, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(smartphonePanelLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(btnAddEmergencyContact, GroupLayout.PREFERRED_SIZE, 166, GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(label5, GroupLayout.PREFERRED_SIZE, 348, GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(GroupLayout.Alignment.TRAILING, smartphonePanelLayout.createSequentialGroup()
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(panel9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addGap(55, 55, 55))
                     );
                     smartphonePanelLayout.setVerticalGroup(
                         smartphonePanelLayout.createParallelGroup()
@@ -295,24 +311,7 @@ public class Window extends JFrame {
                                 .addComponent(label5, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(panel9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(smartphonePanelLayout.createParallelGroup()
-                                    .addComponent(btnAddContact)
-                                    .addGroup(smartphonePanelLayout.createSequentialGroup()
-                                        .addGroup(smartphonePanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                            .addComponent(contactName, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(label9))
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(smartphonePanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                            .addComponent(contactNumber, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(label10))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(smartphonePanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                            .addComponent(label11)
-                                            .addComponent(emergencyNumber, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAddEmergencyContact)
-                                .addContainerGap())
+                                .addContainerGap(131, Short.MAX_VALUE))
                     );
                 }
 
@@ -392,7 +391,7 @@ public class Window extends JFrame {
                         smartWatchPanelLayout.createParallelGroup()
                             .addGroup(smartWatchPanelLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(label7, GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
+                                .addComponent(label7, GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
                                 .addContainerGap())
                     );
                     smartWatchPanelLayout.setVerticalGroup(
@@ -454,9 +453,9 @@ public class Window extends JFrame {
                         panel7.setLayout(panel7Layout);
                         panel7Layout.setHorizontalGroup(
                             panel7Layout.createParallelGroup()
-                                .addGroup(panel7Layout.createSequentialGroup()
-                                    .addGap(120, 120, 120)
-                                    .addComponent(scrollPane2, GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                                .addGroup(GroupLayout.Alignment.TRAILING, panel7Layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(scrollPane2, GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                                     .addContainerGap())
                         );
                         panel7Layout.setVerticalGroup(
@@ -496,15 +495,18 @@ public class Window extends JFrame {
                                         .addGap(476, 476, 476)
                                         .addComponent(panel8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                                     .addGroup(computerPanelLayout.createSequentialGroup()
-                                        .addGap(283, 283, 283)
-                                        .addComponent(label2, GroupLayout.PREFERRED_SIZE, 379, GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(computerPanelLayout.createSequentialGroup()
                                         .addGap(212, 212, 212)
-                                        .addComponent(panel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(computerPanelLayout.createSequentialGroup()
-                                        .addGap(119, 119, 119)
-                                        .addComponent(label6)))
-                                .addContainerGap(66, Short.MAX_VALUE))
+                                        .addComponent(panel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(191, Short.MAX_VALUE))
+                            .addGroup(GroupLayout.Alignment.TRAILING, computerPanelLayout.createSequentialGroup()
+                                .addGap(0, 116, Short.MAX_VALUE)
+                                .addGroup(computerPanelLayout.createParallelGroup()
+                                    .addGroup(GroupLayout.Alignment.TRAILING, computerPanelLayout.createSequentialGroup()
+                                        .addComponent(label2, GroupLayout.PREFERRED_SIZE, 379, GroupLayout.PREFERRED_SIZE)
+                                        .addGap(162, 162, 162))
+                                    .addGroup(GroupLayout.Alignment.TRAILING, computerPanelLayout.createSequentialGroup()
+                                        .addComponent(label6)
+                                        .addGap(107, 107, 107))))
                     );
                     computerPanelLayout.setVerticalGroup(
                         computerPanelLayout.createParallelGroup()
@@ -512,9 +514,9 @@ public class Window extends JFrame {
                                 .addComponent(label2, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(panel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addGap(62, 62, 62)
+                                .addGap(18, 18, 18)
                                 .addComponent(label6, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
+                                .addGap(74, 74, 74)
                                 .addComponent(panel8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                     );
@@ -553,7 +555,7 @@ public class Window extends JFrame {
                                     .addComponent(computerPanel, GroupLayout.PREFERRED_SIZE, 364, GroupLayout.PREFERRED_SIZE)
                                     .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(mainPanelLayout.createSequentialGroup()
-                                    .addComponent(smartphonePanel, GroupLayout.PREFERRED_SIZE, 613, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(smartphonePanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                     .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 );
             }
@@ -571,7 +573,7 @@ public class Window extends JFrame {
                 mainFrameContentPaneLayout.createParallelGroup()
                     .addGroup(GroupLayout.Alignment.TRAILING, mainFrameContentPaneLayout.createSequentialGroup()
                         .addComponent(mainPanel, GroupLayout.PREFERRED_SIZE, 762, GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(24, Short.MAX_VALUE))
+                        .addContainerGap(19, Short.MAX_VALUE))
             );
             mainFrame.pack();
             mainFrame.setLocationRelativeTo(mainFrame.getOwner());
@@ -592,14 +594,10 @@ public class Window extends JFrame {
     private JTextArea phoneText;
     private JButton btnShowContactList;
     private JButton btnShowEmergencyContact;
-    private JLabel label9;
-    private JLabel label10;
-    private JFormattedTextField contactNumber;
     private JButton btnAddContact;
     private JButton btnAddEmergencyContact;
-    private JLabel label11;
-    private JFormattedTextField emergencyNumber;
-    private JTextField contactName;
+    private JPanel hSpacer1;
+    private JPanel hSpacer2;
     private JPanel fallSimulatorPanel;
     private JCheckBox cboxOnFist;
     private JButton btnFall;
