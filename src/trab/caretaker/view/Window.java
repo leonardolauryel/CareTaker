@@ -4,6 +4,7 @@
 
 package trab.caretaker.view;
 
+import javax.swing.event.*;
 import trab.caretaker.control.Computer;
 import trab.caretaker.control.SmartPhone;
 import trab.caretaker.control.Watch;
@@ -28,14 +29,13 @@ public class Window extends JFrame {
         setContentPane(mainPanel);
         setSize(1115,810);
         setVisible(true);
-        onArm = false;
         watch = new Watch();
         smartPhone = new SmartPhone();
         computer = new Computer();
     }
 
     private void btnFallActionPerformed(ActionEvent e) {
-        watch.updateMotionSensorStatus(true, onArm);
+        watch.updateMotionSensorStatus(true, cboxOnFist.isSelected());
         if(watch.fallDetect()){
             computer.sendMessageTo(smartPhone.getEmergencyMessage(), smartPhone.getContacts());
             computerText.append(computer.getScreen());
@@ -43,10 +43,6 @@ public class Window extends JFrame {
             computerText.append(computer.getScreen());
         }
 
-    }
-
-    private void cboxOnFistActionPerformed(ActionEvent e) {
-        onArm = !onArm;
     }
 
     private void btnAddContactActionPerformed(ActionEvent e) {
@@ -330,7 +326,6 @@ public class Window extends JFrame {
                     cboxOnFist.setBackground(new Color(60, 121, 35));
                     cboxOnFist.setForeground(Color.white);
                     cboxOnFist.setFont(new Font("Ubuntu", Font.BOLD, 20));
-                    cboxOnFist.addActionListener(e -> cboxOnFistActionPerformed(e));
 
                     //---- btnFall ----
                     btnFall.setText("Queda");

@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="CareTaker:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="1761fc3d-0d4e-44a7-acc7-c8ee21639bfc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/trab/caretaker/control/Computer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/META-INF/CareTaker.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/com/intellij/uiDesigner/core/AbstractLayout.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/com/intellij/uiDesigner/core/DimensionInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/com/intellij/uiDesigner/core/GridLayoutManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/com/intellij/uiDesigner/core/Spacer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/com/intellij/uiDesigner/core/SupportCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/com/intellij/uiDesigner/core/Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/trab/caretaker/control/SmartPhone.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CareTaker/trab/caretaker/control/SmartPhone.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/trab/caretaker/control/Watch.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CareTaker/trab/caretaker/control/Watch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/trab/caretaker/view/Window$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CareTaker/trab/caretaker/view/Window$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/trab/caretaker/view/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CareTaker/trab/caretaker/view/Window.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/trab/caretaker/view/Window.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CareTaker/trab/caretaker/view/Window.jfd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trab/caretaker/control/SmartPhone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/trab/caretaker/control/SmartPhone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/CareTaker_jar/CareTaker.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/CareTaker_jar/CareTaker.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CareTaker/trab/caretaker/control/Computer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CareTaker/trab/caretaker/control/Computer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/trab/caretaker/control/Watch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/trab/caretaker/control/Watch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/trab/caretaker/view/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/trab/caretaker/view/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/trab/caretaker/view/Window.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/trab/caretaker/view/Window.jfd" afterDir="false" />
@@ -38,7 +26,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/trab/caretaker/__init__/__init__.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="170">
               <caret line="17" selection-start-line="17" selection-end-line="17" />
               <folding>
                 <element signature="e#261#262#0" expanded="true" />
@@ -50,15 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/trab/caretaker/control/Watch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-              <folding>
-                <element signature="e#443#444#0" expanded="true" />
-                <element signature="e#482#483#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="408">
+              <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -71,24 +55,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/trab/caretaker/view/Window.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="270">
+              <caret line="37" column="70" lean-forward="true" selection-start-line="37" selection-start-column="70" selection-end-line="37" selection-end-column="70" />
               <folding>
-                <element signature="e#915#916#0" expanded="true" />
-                <element signature="e#945#946#0" expanded="true" />
-                <marker date="1543800372254" expanded="false" signature="3627:34435" ph="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1543800372254" expanded="false" signature="34447:35705" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1543802366402" expanded="false" signature="3559:34282" ph="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1543802366402" expanded="false" signature="34294:35552" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/trab/caretaker/control/Computer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="18" column="53" lean-forward="true" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+              <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
               <folding>
+                <element signature="e#836#837#0" expanded="true" />
                 <element signature="e#865#866#0" expanded="true" />
               </folding>
             </state>
@@ -98,18 +81,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/trab/caretaker/control/SmartPhone.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="31" column="34" lean-forward="true" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+            <state relative-caret-position="323">
+              <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1174#1175#0" expanded="true" />
-                <element signature="e#1205#1206#0" expanded="true" />
-                <element signature="e#1247#1248#0" expanded="true" />
-                <element signature="e#1285#1286#0" expanded="true" />
-                <element signature="e#1316#1317#0" expanded="true" />
-                <element signature="e#1343#1344#0" expanded="true" />
-                <element signature="e#1743#1744#0" expanded="true" />
-                <element signature="e#1782#1783#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -152,11 +127,11 @@
         <option value="$PROJECT_DIR$/src/trab/caretaker/view/DropSensorSimulatorView.java" />
         <option value="$PROJECT_DIR$/src/trab/caretaker/view/Window.form" />
         <option value="$PROJECT_DIR$/src/trab/caretaker/__init__/__init__.java" />
-        <option value="$PROJECT_DIR$/src/trab/caretaker/view/Window.jfd" />
-        <option value="$PROJECT_DIR$/src/trab/caretaker/view/Window.java" />
         <option value="$PROJECT_DIR$/src/trab/caretaker/control/SmartPhone.java" />
-        <option value="$PROJECT_DIR$/src/trab/caretaker/control/Watch.java" />
         <option value="$PROJECT_DIR$/src/trab/caretaker/control/Computer.java" />
+        <option value="$PROJECT_DIR$/src/trab/caretaker/view/Window.java" />
+        <option value="$PROJECT_DIR$/src/trab/caretaker/view/Window.jfd" />
+        <option value="$PROJECT_DIR$/src/trab/caretaker/control/Watch.java" />
       </list>
     </option>
   </component>
@@ -175,7 +150,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -205,11 +179,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="331" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543801275689" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543801710310" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
@@ -266,8 +241,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23560767" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23827292" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -276,12 +252,12 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3283582" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32827735" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.42361864" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.04767064" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3291536" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3283582" />
@@ -351,9 +327,16 @@
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/javax/swing/JFormattedTextField.java" />
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/javax/swing/text/Document.java" />
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/javax/swing/JTextArea.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/javax/swing/plaf/basic/BasicButtonListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="251" selection-start-line="251" selection-end-line="251" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/trab/caretaker/__init__/__init__.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="170">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
           <folding>
             <element signature="e#261#262#0" expanded="true" />
@@ -364,66 +347,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/trab/caretaker/control/Computer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+          <folding>
+            <element signature="e#836#837#0" expanded="true" />
+            <element signature="e#865#866#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/trab/caretaker/view/Window.jfd">
       <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="JFormDesigner" />
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/javax/swing/plaf/basic/BasicButtonListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="251" selection-start-line="251" selection-end-line="251" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/trab/caretaker/view/Window.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="270">
+          <caret line="37" column="70" lean-forward="true" selection-start-line="37" selection-start-column="70" selection-end-line="37" selection-end-column="70" />
           <folding>
-            <element signature="e#915#916#0" expanded="true" />
-            <element signature="e#945#946#0" expanded="true" />
-            <marker date="1543800372254" expanded="false" signature="3627:34435" ph="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1543800372254" expanded="false" signature="34447:35705" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1543802366402" expanded="false" signature="3559:34282" ph="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1543802366402" expanded="false" signature="34294:35552" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/trab/caretaker/control/SmartPhone.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="31" column="34" lean-forward="true" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+        <state relative-caret-position="323">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1174#1175#0" expanded="true" />
-            <element signature="e#1205#1206#0" expanded="true" />
-            <element signature="e#1247#1248#0" expanded="true" />
-            <element signature="e#1285#1286#0" expanded="true" />
-            <element signature="e#1316#1317#0" expanded="true" />
-            <element signature="e#1343#1344#0" expanded="true" />
-            <element signature="e#1743#1744#0" expanded="true" />
-            <element signature="e#1782#1783#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/trab/caretaker/control/Watch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-          <folding>
-            <element signature="e#443#444#0" expanded="true" />
-            <element signature="e#482#483#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/trab/caretaker/control/Computer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="53" lean-forward="true" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
-          <folding>
-            <element signature="e#865#866#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="408">
+          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
         </state>
       </provider>
     </entry>
