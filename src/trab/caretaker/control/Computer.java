@@ -22,7 +22,7 @@ public class Computer {
              screen = screen.concat(number + "\n");
         }
         else
-            screen = screen.concat("ninguém, pois o usuário não cadastrou um número de emergência");
+            screen = screen.concat("ninguém, pois o usuário não cadastrou um número de emergência\n");
     }
 
     public String getScreen() {
