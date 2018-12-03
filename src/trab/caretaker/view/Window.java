@@ -4,12 +4,12 @@
 
 package trab.caretaker.view;
 
+import trab.caretaker.control.Computer;
 import trab.caretaker.control.SmartPhone;
 import trab.caretaker.control.Watch;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Map;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 
@@ -19,6 +19,7 @@ import javax.swing.GroupLayout;
 public class Window extends JFrame {
     Watch watch;
     SmartPhone smartPhone;
+    Computer computer;
     Boolean onArm;
 
     public Window() {
@@ -30,13 +31,18 @@ public class Window extends JFrame {
         onArm = false;
         watch = new Watch();
         smartPhone = new SmartPhone();
+        computer = new Computer();
     }
 
     private void btnFallActionPerformed(ActionEvent e) {
         watch.updateMotionSensorStatus(true, onArm);
         if(watch.fallDetect()){
-
+            computer.sendMessageTo(smartPhone.getEmergencyMessage(), smartPhone.getContacts());
+            computerText.append(computer.getScreen());
+            computer.callToEmergencyNumber(smartPhone.getEmergencyNumber());
+            computerText.append(computer.getScreen());
         }
+
     }
 
     private void cboxOnFistActionPerformed(ActionEvent e) {
@@ -63,7 +69,7 @@ public class Window extends JFrame {
         }
         if(itsANumber && !cancel) {
             smartPhone.addContact(JOptionPane.showInputDialog("Digite o nome do contato"), phone);
-            phoneText.append("Contato adicionado\n");
+            phoneText.append(smartPhone.getScreen());
         }
 
     }
@@ -88,23 +94,22 @@ public class Window extends JFrame {
         }
         if(itsANumber && !cancel) {
             smartPhone.setEmergencyNumber(phone);
-            phoneText.append("Telefone de emergência adicionado\n");
+            phoneText.append(smartPhone.getScreen());
         }
     }
 
     private void btnShowContactListActionPerformed(ActionEvent e) {
-        Map<String, String> contacts= smartPhone.getContacts();
-        if (contacts.size() > 0) {
-            phoneText.append("Lista de contatos:\n");
-            contacts.forEach((k, v) -> phoneText.append(k + ": " + v + "\n"));
-        }
-        else
-            phoneText.append("Você não possui contatos\n");
-
+        smartPhone.showContactList();
+        phoneText.append(smartPhone.getScreen());
     }
 
     private void btnShowEmergencyContactActionPerformed(ActionEvent e) {
-        phoneText.append((smartPhone.getEmergencyNumber() != null ? "Telefone de emergência: " + smartPhone.getEmergencyNumber() : "Nenhum número de emergência foi cadastrado") + "\n");
+        smartPhone.showEmergencyNumber();
+        phoneText.append(smartPhone.getScreen());
+    }
+
+    private void btnNewEmergencyMessageActionPerformed(ActionEvent e) {
+        smartPhone.setEmergencyMessage(JOptionPane.showInputDialog("Digite a mensagem de emergência"));
     }
 
     private void initComponents() {
@@ -132,13 +137,14 @@ public class Window extends JFrame {
         label3 = new JLabel();
         smartWatchPanel = new JPanel();
         label7 = new JLabel();
+        btnNewEmergencyMessage = new JButton();
         careTakerTitlePanel = new JPanel();
         label1 = new JLabel();
         computerPanel = new JPanel();
         label2 = new JLabel();
         panel7 = new JPanel();
         scrollPane2 = new JScrollPane();
-        textArea2 = new JTextArea();
+        computerText = new JTextArea();
         panel8 = new JPanel();
         label6 = new JLabel();
 
@@ -335,7 +341,7 @@ public class Window extends JFrame {
 
                     //---- label4 ----
                     label4.setText("text");
-                    label4.setIcon(new ImageIcon("/home/pedro/Documentos/CareTaker/src/img/menino-ney_burned.png"));
+                    label4.setIcon(new ImageIcon(getClass().getResource("/img/menino-ney_burned.png")));
 
                     //---- label3 ----
                     label3.setText("Simulador de quedas");
@@ -385,13 +391,21 @@ public class Window extends JFrame {
                     label7.setFont(new Font("URW Palladio L", Font.BOLD, 26));
                     label7.setForeground(Color.white);
 
+                    //---- btnNewEmergencyMessage ----
+                    btnNewEmergencyMessage.setText("Cadastrar mensagem de emerg\u00eancia");
+                    btnNewEmergencyMessage.addActionListener(e -> btnNewEmergencyMessageActionPerformed(e));
+
                     GroupLayout smartWatchPanelLayout = new GroupLayout(smartWatchPanel);
                     smartWatchPanel.setLayout(smartWatchPanelLayout);
                     smartWatchPanelLayout.setHorizontalGroup(
                         smartWatchPanelLayout.createParallelGroup()
                             .addGroup(smartWatchPanelLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(label7, GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                                .addGroup(smartWatchPanelLayout.createParallelGroup()
+                                    .addComponent(label7, GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                                    .addGroup(smartWatchPanelLayout.createSequentialGroup()
+                                        .addComponent(btnNewEmergencyMessage)
+                                        .addGap(0, 147, Short.MAX_VALUE)))
                                 .addContainerGap())
                     );
                     smartWatchPanelLayout.setVerticalGroup(
@@ -399,7 +413,9 @@ public class Window extends JFrame {
                             .addGroup(smartWatchPanelLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(label7, GroupLayout.PREFERRED_SIZE, 62, GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(247, Short.MAX_VALUE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNewEmergencyMessage)
+                                .addContainerGap(211, Short.MAX_VALUE))
                     );
                 }
 
@@ -444,9 +460,9 @@ public class Window extends JFrame {
                         //======== scrollPane2 ========
                         {
 
-                            //---- textArea2 ----
-                            textArea2.setEditable(false);
-                            scrollPane2.setViewportView(textArea2);
+                            //---- computerText ----
+                            computerText.setEditable(false);
+                            scrollPane2.setViewportView(computerText);
                         }
 
                         GroupLayout panel7Layout = new GroupLayout(panel7);
@@ -483,7 +499,7 @@ public class Window extends JFrame {
                     }
 
                     //---- label6 ----
-                    label6.setIcon(new ImageIcon("/home/pedro/Documentos/CareTaker/src/img/mk220_1_1.png"));
+                    label6.setIcon(new ImageIcon(getClass().getResource("/img/mk220_1_1.png")));
 
                     GroupLayout computerPanelLayout = new GroupLayout(computerPanel);
                     computerPanel.setLayout(computerPanelLayout);
@@ -573,7 +589,7 @@ public class Window extends JFrame {
                 mainFrameContentPaneLayout.createParallelGroup()
                     .addGroup(GroupLayout.Alignment.TRAILING, mainFrameContentPaneLayout.createSequentialGroup()
                         .addComponent(mainPanel, GroupLayout.PREFERRED_SIZE, 762, GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(19, Short.MAX_VALUE))
+                        .addContainerGap(16, Short.MAX_VALUE))
             );
             mainFrame.pack();
             mainFrame.setLocationRelativeTo(mainFrame.getOwner());
@@ -605,13 +621,14 @@ public class Window extends JFrame {
     private JLabel label3;
     private JPanel smartWatchPanel;
     private JLabel label7;
+    private JButton btnNewEmergencyMessage;
     private JPanel careTakerTitlePanel;
     private JLabel label1;
     private JPanel computerPanel;
     private JLabel label2;
     private JPanel panel7;
     private JScrollPane scrollPane2;
-    private JTextArea textArea2;
+    private JTextArea computerText;
     private JPanel panel8;
     private JLabel label6;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

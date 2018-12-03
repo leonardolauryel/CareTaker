@@ -5,7 +5,11 @@ import trab.caretaker.view.Window;
 public class Watch {
     private Boolean dropped;
     private Boolean onArm;
-    Window window;
+
+    public Watch(){
+        dropped = false;
+        onArm = false;
+    }
 
     public Boolean isOnArm(){
         return onArm;
