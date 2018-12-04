@@ -108,15 +108,18 @@ public class Window extends JFrame {
         smartPhone.setEmergencyMessage(JOptionPane.showInputDialog("Digite a mensagem de emergência"));
     }
 
+    private void cboxOnFistActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Pedro
         mainFrame = new JFrame();
         mainPanel = new JPanel();
         smartphonePanel = new JPanel();
-        label5 = new JLabel();
+        label9 = new JLabel();
         panel9 = new JPanel();
-        panel5 = new JPanel();
         panel10 = new JPanel();
         scrollPane1 = new JScrollPane();
         phoneText = new JTextArea();
@@ -124,25 +127,22 @@ public class Window extends JFrame {
         btnShowEmergencyContact = new JButton();
         btnAddContact = new JButton();
         btnAddEmergencyContact = new JButton();
-        hSpacer1 = new JPanel(null);
-        hSpacer2 = new JPanel(null);
         fallSimulatorPanel = new JPanel();
         cboxOnFist = new JCheckBox();
         btnFall = new JButton();
         label4 = new JLabel();
         label3 = new JLabel();
         smartWatchPanel = new JPanel();
-        label7 = new JLabel();
         btnNewEmergencyMessage = new JButton();
+        label5 = new JLabel();
         careTakerTitlePanel = new JPanel();
         label1 = new JLabel();
         computerPanel = new JPanel();
-        label2 = new JLabel();
+        label6 = new JLabel();
         panel7 = new JPanel();
         scrollPane2 = new JScrollPane();
         computerText = new JTextArea();
         panel8 = new JPanel();
-        label6 = new JLabel();
 
         //======== mainFrame ========
         {
@@ -164,36 +164,22 @@ public class Window extends JFrame {
                 {
                     smartphonePanel.setForeground(new Color(135, 13, 16));
                     smartphonePanel.setBackground(Color.white);
+                    smartphonePanel.setLayout(null);
 
-                    //---- label5 ----
-                    label5.setText("Smartphone");
-                    label5.setHorizontalAlignment(SwingConstants.CENTER);
-                    label5.setForeground(Color.black);
-                    label5.setFont(new Font("URW Palladio L", Font.BOLD, 26));
+                    //---- label9 ----
+                    label9.setIcon(new ImageIcon(getClass().getResource("/img/Celular.png")));
+                    smartphonePanel.add(label9);
+                    label9.setBounds(35, 20, 265, label9.getPreferredSize().height);
 
                     //======== panel9 ========
                     {
-                        panel9.setBackground(new Color(131, 8, 6));
-
-                        //======== panel5 ========
-                        {
-                            panel5.setBackground(Color.black);
-
-                            GroupLayout panel5Layout = new GroupLayout(panel5);
-                            panel5.setLayout(panel5Layout);
-                            panel5Layout.setHorizontalGroup(
-                                panel5Layout.createParallelGroup()
-                                    .addGap(0, 44, Short.MAX_VALUE)
-                            );
-                            panel5Layout.setVerticalGroup(
-                                panel5Layout.createParallelGroup()
-                                    .addGap(0, 46, Short.MAX_VALUE)
-                            );
-                        }
+                        panel9.setBackground(Color.red);
+                        panel9.setLayout(null);
 
                         //======== panel10 ========
                         {
                             panel10.setBackground(Color.black);
+                            panel10.setLayout(null);
 
                             //======== scrollPane1 ========
                             {
@@ -204,128 +190,99 @@ public class Window extends JFrame {
                                 phoneText.setFont(new Font("Monospaced", Font.PLAIN, 12));
                                 scrollPane1.setViewportView(phoneText);
                             }
+                            panel10.add(scrollPane1);
+                            scrollPane1.setBounds(25, 20, 191, 159);
 
                             //---- btnShowContactList ----
                             btnShowContactList.setText("Ver lista de contatos");
                             btnShowContactList.setFont(new Font("Ubuntu", Font.BOLD, 14));
                             btnShowContactList.addActionListener(e -> btnShowContactListActionPerformed(e));
+                            panel10.add(btnShowContactList);
+                            btnShowContactList.setBounds(20, 330, 200, btnShowContactList.getPreferredSize().height);
 
                             //---- btnShowEmergencyContact ----
                             btnShowEmergencyContact.setText("Ver telefone de emerg\u00eancia");
                             btnShowEmergencyContact.setFont(new Font("Ubuntu", Font.BOLD, 12));
                             btnShowEmergencyContact.addActionListener(e -> btnShowEmergencyContactActionPerformed(e));
+                            panel10.add(btnShowEmergencyContact);
+                            btnShowEmergencyContact.setBounds(20, 370, 200, btnShowEmergencyContact.getPreferredSize().height);
 
                             //---- btnAddContact ----
                             btnAddContact.setText("Adicionar Contato");
                             btnAddContact.setFont(new Font("Ubuntu", Font.BOLD, 15));
                             btnAddContact.addActionListener(e -> btnAddContactActionPerformed(e));
+                            panel10.add(btnAddContact);
+                            btnAddContact.setBounds(20, 290, 200, btnAddContact.getPreferredSize().height);
 
                             //---- btnAddEmergencyContact ----
                             btnAddEmergencyContact.setText("Adicionar telefone de emerg\u00eancia");
                             btnAddEmergencyContact.setFont(new Font("Ubuntu", Font.BOLD, 10));
                             btnAddEmergencyContact.addActionListener(e -> btnAddEmergencyContactActionPerformed(e));
+                            panel10.add(btnAddEmergencyContact);
+                            btnAddEmergencyContact.setBounds(20, 250, 200, btnAddEmergencyContact.getPreferredSize().height);
 
-                            GroupLayout panel10Layout = new GroupLayout(panel10);
-                            panel10.setLayout(panel10Layout);
-                            panel10Layout.setHorizontalGroup(
-                                panel10Layout.createParallelGroup()
-                                    .addGroup(panel10Layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addGroup(panel10Layout.createParallelGroup()
-                                            .addComponent(btnAddContact, GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                                            .addComponent(btnShowEmergencyContact, GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
-                                            .addComponent(btnAddEmergencyContact, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
-                                            .addComponent(scrollPane1)
-                                            .addComponent(btnShowContactList, GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE))
-                                        .addContainerGap())
-                            );
-                            panel10Layout.setVerticalGroup(
-                                panel10Layout.createParallelGroup()
-                                    .addGroup(panel10Layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 159, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                                        .addComponent(btnAddEmergencyContact)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnAddContact)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnShowContactList)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnShowEmergencyContact)
-                                        .addContainerGap())
-                            );
+                            { // compute preferred size
+                                Dimension preferredSize = new Dimension();
+                                for(int i = 0; i < panel10.getComponentCount(); i++) {
+                                    Rectangle bounds = panel10.getComponent(i).getBounds();
+                                    preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                                    preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+                                }
+                                Insets insets = panel10.getInsets();
+                                preferredSize.width += insets.right;
+                                preferredSize.height += insets.bottom;
+                                panel10.setMinimumSize(preferredSize);
+                                panel10.setPreferredSize(preferredSize);
+                            }
                         }
+                        panel9.add(panel10);
+                        panel10.setBounds(0, 0, 240, 425);
 
-                        GroupLayout panel9Layout = new GroupLayout(panel9);
-                        panel9.setLayout(panel9Layout);
-                        panel9Layout.setHorizontalGroup(
-                            panel9Layout.createParallelGroup()
-                                .addGroup(panel9Layout.createSequentialGroup()
-                                    .addGroup(panel9Layout.createParallelGroup()
-                                        .addGroup(panel9Layout.createSequentialGroup()
-                                            .addGap(14, 14, 14)
-                                            .addComponent(panel10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(panel9Layout.createSequentialGroup()
-                                            .addContainerGap()
-                                            .addComponent(hSpacer1, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(panel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(hSpacer2, GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)))
-                                    .addContainerGap())
-                        );
-                        panel9Layout.setVerticalGroup(
-                            panel9Layout.createParallelGroup()
-                                .addGroup(GroupLayout.Alignment.TRAILING, panel9Layout.createSequentialGroup()
-                                    .addGap(29, 29, 29)
-                                    .addComponent(panel10, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(panel9Layout.createParallelGroup()
-                                        .addGroup(panel9Layout.createSequentialGroup()
-                                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(panel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(panel9Layout.createSequentialGroup()
-                                            .addGap(19, 19, 19)
-                                            .addComponent(hSpacer1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(panel9Layout.createSequentialGroup()
-                                            .addGap(18, 18, 18)
-                                            .addComponent(hSpacer2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-                                    .addContainerGap())
-                        );
+                        { // compute preferred size
+                            Dimension preferredSize = new Dimension();
+                            for(int i = 0; i < panel9.getComponentCount(); i++) {
+                                Rectangle bounds = panel9.getComponent(i).getBounds();
+                                preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                                preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+                            }
+                            Insets insets = panel9.getInsets();
+                            preferredSize.width += insets.right;
+                            preferredSize.height += insets.bottom;
+                            panel9.setMinimumSize(preferredSize);
+                            panel9.setPreferredSize(preferredSize);
+                        }
                     }
+                    smartphonePanel.add(panel9);
+                    panel9.setBounds(40, 55, panel9.getPreferredSize().width, 425);
 
-                    GroupLayout smartphonePanelLayout = new GroupLayout(smartphonePanel);
-                    smartphonePanel.setLayout(smartphonePanelLayout);
-                    smartphonePanelLayout.setHorizontalGroup(
-                        smartphonePanelLayout.createParallelGroup()
-                            .addGroup(smartphonePanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(label5, GroupLayout.PREFERRED_SIZE, 348, GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(GroupLayout.Alignment.TRAILING, smartphonePanelLayout.createSequentialGroup()
-                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(panel9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addGap(55, 55, 55))
-                    );
-                    smartphonePanelLayout.setVerticalGroup(
-                        smartphonePanelLayout.createParallelGroup()
-                            .addGroup(smartphonePanelLayout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addComponent(label5, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(panel9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(131, Short.MAX_VALUE))
-                    );
+                    { // compute preferred size
+                        Dimension preferredSize = new Dimension();
+                        for(int i = 0; i < smartphonePanel.getComponentCount(); i++) {
+                            Rectangle bounds = smartphonePanel.getComponent(i).getBounds();
+                            preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                            preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+                        }
+                        Insets insets = smartphonePanel.getInsets();
+                        preferredSize.width += insets.right;
+                        preferredSize.height += insets.bottom;
+                        smartphonePanel.setMinimumSize(preferredSize);
+                        smartphonePanel.setPreferredSize(preferredSize);
+                    }
                 }
 
                 //======== fallSimulatorPanel ========
                 {
                     fallSimulatorPanel.setBackground(new Color(60, 121, 35));
+                    fallSimulatorPanel.setLayout(null);
 
                     //---- cboxOnFist ----
                     cboxOnFist.setText("Est\u00e1 no pulso");
                     cboxOnFist.setBackground(new Color(60, 121, 35));
                     cboxOnFist.setForeground(Color.white);
                     cboxOnFist.setFont(new Font("Ubuntu", Font.BOLD, 20));
+                    cboxOnFist.addActionListener(e -> cboxOnFistActionPerformed(e));
+                    fallSimulatorPanel.add(cboxOnFist);
+                    cboxOnFist.setBounds(15, 245, 163, 46);
 
                     //---- btnFall ----
                     btnFall.setText("Queda");
@@ -333,85 +290,70 @@ public class Window extends JFrame {
                     btnFall.setForeground(Color.white);
                     btnFall.setBackground(new Color(60, 121, 35));
                     btnFall.addActionListener(e -> btnFallActionPerformed(e));
+                    fallSimulatorPanel.add(btnFall);
+                    btnFall.setBounds(190, 250, 132, btnFall.getPreferredSize().height);
 
                     //---- label4 ----
                     label4.setText("text");
                     label4.setIcon(new ImageIcon(getClass().getResource("/img/menino-ney_burned.png")));
+                    fallSimulatorPanel.add(label4);
+                    label4.setBounds(6, 62, 319, 184);
 
                     //---- label3 ----
                     label3.setText("Simulador de quedas");
                     label3.setHorizontalAlignment(SwingConstants.CENTER);
                     label3.setForeground(Color.white);
                     label3.setFont(new Font("URW Palladio L", Font.BOLD, 26));
+                    fallSimulatorPanel.add(label3);
+                    label3.setBounds(6, 6, 319, 50);
 
-                    GroupLayout fallSimulatorPanelLayout = new GroupLayout(fallSimulatorPanel);
-                    fallSimulatorPanel.setLayout(fallSimulatorPanelLayout);
-                    fallSimulatorPanelLayout.setHorizontalGroup(
-                        fallSimulatorPanelLayout.createParallelGroup()
-                            .addGroup(fallSimulatorPanelLayout.createSequentialGroup()
-                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(fallSimulatorPanelLayout.createParallelGroup()
-                                    .addComponent(label3, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 319, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(label4, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 319, GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap())
-                            .addGroup(fallSimulatorPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(cboxOnFist, GroupLayout.PREFERRED_SIZE, 163, GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnFall, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    );
-                    fallSimulatorPanelLayout.setVerticalGroup(
-                        fallSimulatorPanelLayout.createParallelGroup()
-                            .addGroup(fallSimulatorPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(label3, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(label4, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(fallSimulatorPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(cboxOnFist, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnFall))
-                                .addContainerGap(11, Short.MAX_VALUE))
-                    );
+                    { // compute preferred size
+                        Dimension preferredSize = new Dimension();
+                        for(int i = 0; i < fallSimulatorPanel.getComponentCount(); i++) {
+                            Rectangle bounds = fallSimulatorPanel.getComponent(i).getBounds();
+                            preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                            preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+                        }
+                        Insets insets = fallSimulatorPanel.getInsets();
+                        preferredSize.width += insets.right;
+                        preferredSize.height += insets.bottom;
+                        fallSimulatorPanel.setMinimumSize(preferredSize);
+                        fallSimulatorPanel.setPreferredSize(preferredSize);
+                    }
                 }
 
                 //======== smartWatchPanel ========
                 {
                     smartWatchPanel.setBackground(new Color(105, 16, 19));
-
-                    //---- label7 ----
-                    label7.setText("SmartWatch");
-                    label7.setHorizontalAlignment(SwingConstants.CENTER);
-                    label7.setFont(new Font("URW Palladio L", Font.BOLD, 26));
-                    label7.setForeground(Color.white);
+                    smartWatchPanel.setLayout(null);
 
                     //---- btnNewEmergencyMessage ----
                     btnNewEmergencyMessage.setText("Cadastrar mensagem de emerg\u00eancia");
+                    btnNewEmergencyMessage.setFont(new Font("Segoe UI", Font.BOLD, 9));
+                    btnNewEmergencyMessage.setBorderPainted(false);
+                    btnNewEmergencyMessage.setMargin(new Insets(0, 0, 4, 0));
                     btnNewEmergencyMessage.addActionListener(e -> btnNewEmergencyMessageActionPerformed(e));
+                    smartWatchPanel.add(btnNewEmergencyMessage);
+                    btnNewEmergencyMessage.setBounds(120, 120, 165, 30);
 
-                    GroupLayout smartWatchPanelLayout = new GroupLayout(smartWatchPanel);
-                    smartWatchPanel.setLayout(smartWatchPanelLayout);
-                    smartWatchPanelLayout.setHorizontalGroup(
-                        smartWatchPanelLayout.createParallelGroup()
-                            .addGroup(smartWatchPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(smartWatchPanelLayout.createParallelGroup()
-                                    .addComponent(label7, GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
-                                    .addGroup(smartWatchPanelLayout.createSequentialGroup()
-                                        .addComponent(btnNewEmergencyMessage)
-                                        .addGap(0, 147, Short.MAX_VALUE)))
-                                .addContainerGap())
-                    );
-                    smartWatchPanelLayout.setVerticalGroup(
-                        smartWatchPanelLayout.createParallelGroup()
-                            .addGroup(smartWatchPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(label7, GroupLayout.PREFERRED_SIZE, 62, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnNewEmergencyMessage)
-                                .addContainerGap(211, Short.MAX_VALUE))
-                    );
+                    //---- label5 ----
+                    label5.setIcon(new ImageIcon(getClass().getResource("/img/Rel\u00f3gio_com_fundo.png")));
+                    smartWatchPanel.add(label5);
+                    label5.setBounds(new Rectangle(new Point(55, -10), label5.getPreferredSize()));
+
+                    { // compute preferred size
+                        Dimension preferredSize = new Dimension();
+                        for(int i = 0; i < smartWatchPanel.getComponentCount(); i++) {
+                            Rectangle bounds = smartWatchPanel.getComponent(i).getBounds();
+                            preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                            preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+                        }
+                        Insets insets = smartWatchPanel.getInsets();
+                        preferredSize.width += insets.right;
+                        preferredSize.height += insets.bottom;
+                        smartWatchPanel.setMinimumSize(preferredSize);
+                        smartWatchPanel.setPreferredSize(preferredSize);
+                    }
                 }
 
                 //======== careTakerTitlePanel ========
@@ -442,15 +384,16 @@ public class Window extends JFrame {
                 //======== computerPanel ========
                 {
                     computerPanel.setBackground(Color.black);
+                    computerPanel.setLayout(null);
 
-                    //---- label2 ----
-                    label2.setText("Computer");
-                    label2.setForeground(Color.white);
-                    label2.setHorizontalAlignment(SwingConstants.CENTER);
-                    label2.setFont(new Font("URW Palladio L", Font.BOLD, 26));
+                    //---- label6 ----
+                    label6.setIcon(new ImageIcon(getClass().getResource("/img/Computador.png")));
+                    computerPanel.add(label6);
+                    label6.setBounds(new Rectangle(new Point(210, 0), label6.getPreferredSize()));
 
                     //======== panel7 ========
                     {
+                        panel7.setLayout(null);
 
                         //======== scrollPane2 ========
                         {
@@ -459,24 +402,25 @@ public class Window extends JFrame {
                             computerText.setEditable(false);
                             scrollPane2.setViewportView(computerText);
                         }
+                        panel7.add(scrollPane2);
+                        scrollPane2.setBounds(5, 0, 335, 195);
 
-                        GroupLayout panel7Layout = new GroupLayout(panel7);
-                        panel7.setLayout(panel7Layout);
-                        panel7Layout.setHorizontalGroup(
-                            panel7Layout.createParallelGroup()
-                                .addGroup(GroupLayout.Alignment.TRAILING, panel7Layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(scrollPane2, GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
-                                    .addContainerGap())
-                        );
-                        panel7Layout.setVerticalGroup(
-                            panel7Layout.createParallelGroup()
-                                .addGroup(panel7Layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(scrollPane2, GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addContainerGap())
-                        );
+                        { // compute preferred size
+                            Dimension preferredSize = new Dimension();
+                            for(int i = 0; i < panel7.getComponentCount(); i++) {
+                                Rectangle bounds = panel7.getComponent(i).getBounds();
+                                preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                                preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+                            }
+                            Insets insets = panel7.getInsets();
+                            preferredSize.width += insets.right;
+                            preferredSize.height += insets.bottom;
+                            panel7.setMinimumSize(preferredSize);
+                            panel7.setPreferredSize(preferredSize);
+                        }
                     }
+                    computerPanel.add(panel7);
+                    panel7.setBounds(235, 25, 345, 195);
 
                     //======== panel8 ========
                     {
@@ -492,45 +436,22 @@ public class Window extends JFrame {
                                 .addGap(0, 36, Short.MAX_VALUE)
                         );
                     }
+                    computerPanel.add(panel8);
+                    panel8.setBounds(new Rectangle(new Point(476, 617), panel8.getPreferredSize()));
 
-                    //---- label6 ----
-                    label6.setIcon(new ImageIcon(getClass().getResource("/img/mk220_1_1.png")));
-
-                    GroupLayout computerPanelLayout = new GroupLayout(computerPanel);
-                    computerPanel.setLayout(computerPanelLayout);
-                    computerPanelLayout.setHorizontalGroup(
-                        computerPanelLayout.createParallelGroup()
-                            .addGroup(computerPanelLayout.createSequentialGroup()
-                                .addGroup(computerPanelLayout.createParallelGroup()
-                                    .addGroup(computerPanelLayout.createSequentialGroup()
-                                        .addGap(476, 476, 476)
-                                        .addComponent(panel8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(computerPanelLayout.createSequentialGroup()
-                                        .addGap(212, 212, 212)
-                                        .addComponent(panel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(191, Short.MAX_VALUE))
-                            .addGroup(GroupLayout.Alignment.TRAILING, computerPanelLayout.createSequentialGroup()
-                                .addGap(0, 116, Short.MAX_VALUE)
-                                .addGroup(computerPanelLayout.createParallelGroup()
-                                    .addGroup(GroupLayout.Alignment.TRAILING, computerPanelLayout.createSequentialGroup()
-                                        .addComponent(label2, GroupLayout.PREFERRED_SIZE, 379, GroupLayout.PREFERRED_SIZE)
-                                        .addGap(162, 162, 162))
-                                    .addGroup(GroupLayout.Alignment.TRAILING, computerPanelLayout.createSequentialGroup()
-                                        .addComponent(label6)
-                                        .addGap(107, 107, 107))))
-                    );
-                    computerPanelLayout.setVerticalGroup(
-                        computerPanelLayout.createParallelGroup()
-                            .addGroup(computerPanelLayout.createSequentialGroup()
-                                .addComponent(label2, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(panel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(label6, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
-                                .addGap(74, 74, 74)
-                                .addComponent(panel8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                    );
+                    { // compute preferred size
+                        Dimension preferredSize = new Dimension();
+                        for(int i = 0; i < computerPanel.getComponentCount(); i++) {
+                            Rectangle bounds = computerPanel.getComponent(i).getBounds();
+                            preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                            preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+                        }
+                        Insets insets = computerPanel.getInsets();
+                        preferredSize.width += insets.right;
+                        preferredSize.height += insets.bottom;
+                        computerPanel.setMinimumSize(preferredSize);
+                        computerPanel.setPreferredSize(preferredSize);
+                    }
                 }
 
                 GroupLayout mainPanelLayout = new GroupLayout(mainPanel);
@@ -545,10 +466,10 @@ public class Window extends JFrame {
                                     .addGap(18, 18, 18)
                                     .addGroup(mainPanelLayout.createParallelGroup()
                                         .addGroup(mainPanelLayout.createSequentialGroup()
-                                            .addComponent(smartWatchPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(smartWatchPanel, GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(fallSimulatorPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(computerPanel, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addComponent(computerPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addComponent(careTakerTitlePanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addContainerGap())
                 );
@@ -559,33 +480,18 @@ public class Window extends JFrame {
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(mainPanelLayout.createParallelGroup()
                                 .addGroup(mainPanelLayout.createSequentialGroup()
+                                    .addComponent(smartphonePanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                    .addContainerGap(149, Short.MAX_VALUE))
+                                .addGroup(mainPanelLayout.createSequentialGroup()
                                     .addGroup(mainPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                         .addComponent(smartWatchPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(fallSimulatorPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(fallSimulatorPanel, GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(computerPanel, GroupLayout.PREFERRED_SIZE, 364, GroupLayout.PREFERRED_SIZE)
-                                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(mainPanelLayout.createSequentialGroup()
-                                    .addComponent(smartphonePanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(computerPanel, GroupLayout.PREFERRED_SIZE, 304, GroupLayout.PREFERRED_SIZE)
+                                    .addContainerGap(183, Short.MAX_VALUE))))
                 );
             }
-
-            GroupLayout mainFrameContentPaneLayout = new GroupLayout(mainFrameContentPane);
-            mainFrameContentPane.setLayout(mainFrameContentPaneLayout);
-            mainFrameContentPaneLayout.setHorizontalGroup(
-                mainFrameContentPaneLayout.createParallelGroup()
-                    .addGroup(mainFrameContentPaneLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(mainPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-            );
-            mainFrameContentPaneLayout.setVerticalGroup(
-                mainFrameContentPaneLayout.createParallelGroup()
-                    .addGroup(GroupLayout.Alignment.TRAILING, mainFrameContentPaneLayout.createSequentialGroup()
-                        .addComponent(mainPanel, GroupLayout.PREFERRED_SIZE, 762, GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(16, Short.MAX_VALUE))
-            );
+            mainFrameContentPane.add(mainPanel);
             mainFrame.pack();
             mainFrame.setLocationRelativeTo(mainFrame.getOwner());
         }
@@ -597,9 +503,8 @@ public class Window extends JFrame {
     private JFrame mainFrame;
     private JPanel mainPanel;
     private JPanel smartphonePanel;
-    private JLabel label5;
+    private JLabel label9;
     private JPanel panel9;
-    private JPanel panel5;
     private JPanel panel10;
     private JScrollPane scrollPane1;
     private JTextArea phoneText;
@@ -607,24 +512,21 @@ public class Window extends JFrame {
     private JButton btnShowEmergencyContact;
     private JButton btnAddContact;
     private JButton btnAddEmergencyContact;
-    private JPanel hSpacer1;
-    private JPanel hSpacer2;
     private JPanel fallSimulatorPanel;
     private JCheckBox cboxOnFist;
     private JButton btnFall;
     private JLabel label4;
     private JLabel label3;
     private JPanel smartWatchPanel;
-    private JLabel label7;
     private JButton btnNewEmergencyMessage;
+    private JLabel label5;
     private JPanel careTakerTitlePanel;
     private JLabel label1;
     private JPanel computerPanel;
-    private JLabel label2;
+    private JLabel label6;
     private JPanel panel7;
     private JScrollPane scrollPane2;
     private JTextArea computerText;
     private JPanel panel8;
-    private JLabel label6;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

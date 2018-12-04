@@ -16,9 +16,9 @@ public class Watch {
     }
 
     public void updateMotionSensorStatus(Boolean dropped, Boolean onArm){
-        if(dropped != null)
+        if(dropped)
             this.dropped = dropped;
-        if(onArm != null)
+        if(onArm)
             this.onArm = onArm;
     }
 
