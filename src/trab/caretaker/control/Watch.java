@@ -2,9 +2,12 @@ package trab.caretaker.control;
 
 import trab.caretaker.view.Window;
 
+import java.util.Random;
+
 public class Watch {
     private Boolean dropped;
     private Boolean onArm;
+    private int heartBeats;
 
     public Watch(){
         dropped = false;
@@ -26,4 +29,12 @@ public class Watch {
         return dropped && onArm;
     }
 
+    public void updateHeartBeats(){
+        Random r = new Random();
+        this.heartBeats = r.nextInt(80) + 70;
+    }
+
+    public int getHeartBeats() {
+        return heartBeats;
+    }
 }

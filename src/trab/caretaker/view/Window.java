@@ -11,6 +11,8 @@ import trab.caretaker.control.Watch;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 
@@ -21,7 +23,6 @@ public class Window extends JFrame {
     Watch watch;
     SmartPhone smartPhone;
     Computer computer;
-    Boolean onArm;
 
     public Window() {
         super("CareTaker");
@@ -112,6 +113,17 @@ public class Window extends JFrame {
         // TODO add your code here
     }
 
+    private void btnSendReportActionPerformed(ActionEvent e) {
+        List<String> heartBeatsList = new ArrayList<String>();
+        int i;
+        for(i=0;i<4;i++){
+            watch.updateHeartBeats();
+            heartBeatsList.add(String.valueOf(watch.getHeartBeats()));
+        }
+        computer.sendReport(heartBeatsList);
+        computerText.append(computer.getScreen());
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Pedro
@@ -140,6 +152,7 @@ public class Window extends JFrame {
         computerPanel = new JPanel();
         label6 = new JLabel();
         panel7 = new JPanel();
+        btnSendReport = new JButton();
         scrollPane2 = new JScrollPane();
         computerText = new JTextArea();
         panel8 = new JPanel();
@@ -395,6 +408,12 @@ public class Window extends JFrame {
                     {
                         panel7.setLayout(null);
 
+                        //---- btnSendReport ----
+                        btnSendReport.setText("Enviar relat\u00f3rio ao m\u00e9dico");
+                        btnSendReport.addActionListener(e -> btnSendReportActionPerformed(e));
+                        panel7.add(btnSendReport);
+                        btnSendReport.setBounds(new Rectangle(new Point(0, 155), btnSendReport.getPreferredSize()));
+
                         //======== scrollPane2 ========
                         {
 
@@ -403,7 +422,7 @@ public class Window extends JFrame {
                             scrollPane2.setViewportView(computerText);
                         }
                         panel7.add(scrollPane2);
-                        scrollPane2.setBounds(5, 0, 335, 195);
+                        scrollPane2.setBounds(5, 0, 335, 150);
 
                         { // compute preferred size
                             Dimension preferredSize = new Dimension();
@@ -481,7 +500,7 @@ public class Window extends JFrame {
                             .addGroup(mainPanelLayout.createParallelGroup()
                                 .addGroup(mainPanelLayout.createSequentialGroup()
                                     .addComponent(smartphonePanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                    .addContainerGap(149, Short.MAX_VALUE))
+                                    .addContainerGap(266, Short.MAX_VALUE))
                                 .addGroup(mainPanelLayout.createSequentialGroup()
                                     .addGroup(mainPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                         .addComponent(smartWatchPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -525,6 +544,7 @@ public class Window extends JFrame {
     private JPanel computerPanel;
     private JLabel label6;
     private JPanel panel7;
+    private JButton btnSendReport;
     private JScrollPane scrollPane2;
     private JTextArea computerText;
     private JPanel panel8;

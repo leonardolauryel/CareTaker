@@ -8,7 +8,7 @@ new FormModel {
 			"resizable": false
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 				"$horizontalGroup": "par l {seq {par l {seq {space :::p, comp smartphonePanel:::p:348:p, space s:::p, par l {seq {comp smartWatchPanel::::404:x, space :::p, comp fallSimulatorPanel:::p::p}, comp computerPanel:::::x}}, comp careTakerTitlePanel:::::x}, space :::p}}"
-				"$verticalGroup": "par l {seq l {comp careTakerTitlePanel:::p::p, space :::p, par l {seq {comp smartphonePanel:::p::p, space ::149:x}, seq l {par l:::p {comp smartWatchPanel:::::x, comp fallSimulatorPanel::::0:x}, space :::x, comp computerPanel:::p:304:p, space ::183:x}}}}"
+				"$verticalGroup": "par l {seq l {comp careTakerTitlePanel:::p::p, space :::p, par l {seq {comp smartphonePanel:::p::p, space ::266:x}, seq l {par l:::p {comp smartWatchPanel:::::x, comp fallSimulatorPanel::::0:x}, space :::x, comp computerPanel:::p:304:p, space ::183:x}}}}"
 			} ) {
 				name: "mainPanel"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
@@ -196,6 +196,13 @@ new FormModel {
 					} )
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 						name: "panel7"
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "btnSendReport"
+							"text": "Enviar relatório ao médico"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnSendReportActionPerformed", true ) )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"y": 155
+						} )
 						add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 							name: "scrollPane2"
 							add( new FormComponent( "javax.swing.JTextArea" ) {
@@ -206,7 +213,7 @@ new FormModel {
 							"x": 5
 							"y": 0
 							"width": 335
-							"height": 195
+							"height": 150
 						} )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 						"x": 235
