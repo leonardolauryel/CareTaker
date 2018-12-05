@@ -38,10 +38,10 @@ public class Window extends JFrame {
     private void btnFallActionPerformed(ActionEvent e) {
         watch.updateMotionSensorStatus(true, cboxOnFist.isSelected());
         if(watch.fallDetect()){
-            computer.sendMessageTo(smartPhone.getEmergencyMessage(), smartPhone.getContacts());
-            computerText.append(computer.getScreen());
-            computer.callToEmergencyNumber(smartPhone.getEmergencyNumber());
-            computerText.append(computer.getScreen());
+            smartPhone.sendEmergencyMessage();
+            phoneText.append(smartPhone.getScreen());
+            smartPhone.callToEmergencyNumber();
+            phoneText.append(smartPhone.getScreen());
         }
 
     }

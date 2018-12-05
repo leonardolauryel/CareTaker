@@ -24,8 +24,23 @@ public class SmartPhone {
         screen = "Contato adicionado\n";
     }
 
-    public void callEmergency(){
+    public void sendEmergencyMessage(){
+        screen = "Enviando mensagem \"" + emergencyMessage + "\" para:\n";
+        if (contacts.size() > 0) {
+            contacts.forEach((k, v) -> screen = screen.concat(k + "\n"));
+        }
+        else {
+            screen = screen.concat("Ninguém, pois o usuário não possui contatos\n");
+        }
+    }
 
+    public void callToEmergencyNumber(){
+        screen = "Ligando para ";
+        if (emergencyNumber != null) {
+            screen = screen.concat(emergencyNumber + "\n");
+        }
+        else
+            screen = screen.concat("ninguém, pois o usuário não cadastrou um número de emergência\n");
     }
 
     public void showContactList(){
